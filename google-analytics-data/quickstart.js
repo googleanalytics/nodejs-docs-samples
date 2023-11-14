@@ -69,7 +69,7 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
 
     // [START analyticsdata_run_report_response]
     console.log('Report result:');
-    response.rows.forEach(row => {
+    response.rows.forEach((row) => {
       console.log(row.dimensionValues[0], row.metricValues[0]);
     });
     // [END analyticsdata_run_report_response]
@@ -79,7 +79,7 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
   // [END analyticsdata_quickstart]
 }
 
-process.on('unhandledRejection', err => {
+process.on('unhandledRejection', (err) => {
   console.error(err.message);
   process.exitCode = 1;
 });

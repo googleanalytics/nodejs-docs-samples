@@ -10,6 +10,8 @@
     "*.js"
   ],
   "scripts": {
+    "lint": "eslint",
+    "fix": "eslint --fix",
     "test": "c8 mocha --timeout 600000 test/*.js"
   },
   "dependencies": {
@@ -25,6 +27,8 @@
   "devDependencies": {
     "c8": "^7.1.0",
     "chai": "^4.2.0",
+    "eslint": "^8.53.0",
+    "eslint-config-google": "^0.14.0",
     "mocha": "^8.0.0"
   }
 }
