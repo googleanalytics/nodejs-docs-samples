@@ -46,8 +46,6 @@ async function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
   // Imports the Google Analytics Data API client library.
   const {BetaAnalyticsDataClient} = require('@google-analytics/data');
 
-  console.log(`Got credentials: ${oAuth2Client}`);
-
   // Constructs a BetaAnalyticsDataClient using the credentials obtained above
   // instead of the Application Default Credentials.
   const credentials = grpc.credentials.combineChannelCredentials(
