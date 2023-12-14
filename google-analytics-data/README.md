@@ -9,6 +9,7 @@ These samples show how to use the
 [Google Analytics Data API](https://developers.google.com/analytics/devguides/reporting/data/v1) from Node.js.
 
 ## Build and Run
+
 1.  **Enable APIs** - [Enable the Analytics Data API](https://console.cloud.google.com/flows/enableapi?apiid=analyticsdata.googleapis.com)
     and create a new project or select an existing project.
 2.  **Download The Credentials** - Configure your project using [Application Default Credentials][adc].
@@ -34,3 +35,4 @@ These samples show how to use the
     node quickstart.js
     ```
 
+[adc]: https://cloud.google.com/docs/authentication#adc
