@@ -14,16 +14,17 @@
 
 'use strict';
 
-/** Google Analytics Data API sample quickstart application.
- This application demonstrates the usage of the Analytics Data API using
- service account credentials.
-
- Before you start the application, please review the comments starting with
- "TODO(developer)" and update the code to use correct values.
-
- Usage:
- npm install
- node quickstart.js
+/**
+ * Google Analytics Data API sample quickstart application.
+ * This application demonstrates the usage of the Analytics Data API using
+ * service account credentials.
+ *
+ * Before you start the application, please review the comments starting with
+ * "TODO(developer)" and update the code to use correct values.
+ *
+ * Usage:
+ * npm install
+ * node quickstart.js
  */
 
 function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {

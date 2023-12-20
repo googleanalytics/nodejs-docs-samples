@@ -14,28 +14,28 @@
 
 'use strict';
 
-/** Google Analytics Data API sample quickstart application.
- This application demonstrates the usage of the Analytics Data API using
- service account credentials.
-
- Before you start the application, please review the comments starting with
- "TODO(developer)" and update the code to use correct values.
-
- Usage:
- npm install
- node quickstart_oauth2.js
+/**
+ * Google Analytics Data API sample quickstart application.
+ * This application demonstrates the usage of the Analytics Data API using
+ * OAuth2 credentials.
+ *
+ * Before you start the application, please review the comments starting with
+ * "TODO(developer)" and update the code to use correct values.
+ *
+ * Usage:
+ * npm install
+ * node quickstart_oauth2.js
  */
 const {OAuth2Client} = require('google-auth-library');
 const http = require('http');
 const url = require('url');
 const open = require('open');
-// TODO(jradcliff): Confirm this is the correct approach. Should grpc be in package.json?
 const grpc = require('@grpc/grpc-js');
 const destroyer = require('server-destroy');
 
 // TODO(developer): Download the OAuth 2.0 client ID JSON from
 // https://console.cloud.google.com/apis/credentials for a Desktop or Web
-// client, and save it in the java-docs-samples/google-analytics-data directory
+// client, and save it in the nodejs-docs-samples/google-analytics-data directory
 // in a file named oauth2.keys.json.  If using a Web client, register
 // http://127.0.0.1 as an authorized redirect URI.
 const keys = require('./oauth2.keys.json');

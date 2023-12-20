@@ -14,16 +14,17 @@
 
 'use strict';
 
-/** Google Analytics Admin API sample quickstart application.
- This application demonstrates the usage of the Analytics Admin API using
- service account credentials.
-
- Before you start the application, please review the comments starting with
- "TODO(developer)" and update the code to use correct values.
-
- Usage:
- npm install
- node quickstart.js
+/**
+ * Google Analytics Admin API sample quickstart application.
+ * This application demonstrates the usage of the Analytics Admin API using
+ * service account credentials.
+ *
+ * Before you start the application, please review the comments starting with
+ * "TODO(developer)" and update the code to use correct values.
+ *
+ * Usage:
+ * npm install
+ * node quickstart.js
  */
 
 function main() {
