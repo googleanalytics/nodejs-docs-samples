@@ -49,13 +49,13 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
       minuteRanges: [
         {
           name: '0-4 minutes ago',
-          start_minutes_ago: 4,
-          end_minutes_ago: 0,
+          startMinutesAgo: 4,
+          endMinutesAgo: 0,
         },
         {
           name: '25-29 minutes ago',
-          start_minutes_ago: 29,
-          end_minutes_ago: 25,
+          startMinutesAgo: 29,
+          endMinutesAgo: 25,
         },
       ],
       metrics: [
