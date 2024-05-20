@@ -23,7 +23,7 @@ const {describe, it} = require('mocha');
 
 const execSync = cmd => cp.execSync(cmd, {encoding: 'utf-8'});
 
-const GA4_PROPERTY_ID = process.env.GA4_PROPERTY_ID || '222596558';
+const GA4_PROPERTY_ID = process.env.GA_TEST_PROPERTY_ID || '222596558';
 
 const GOOGLE_APPLICATION_CREDENTIALS =
   process.env.GOOGLE_APPLICATION_CREDENTIALS;

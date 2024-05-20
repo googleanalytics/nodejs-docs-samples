@@ -1,4 +1,4 @@
 node_modules/
 **/package-lock.json
-.coverage
+coverage/
 google-analytics-data/oauth2.keys.json
