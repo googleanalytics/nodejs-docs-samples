@@ -29,7 +29,7 @@ describe('Report with ordering', () => {
   it('should run a report of active users, ordered by descending revenue', async () => {
     // eslint-disable-next-line no-unused-vars
     const stdout = execSync(
-      `node ./runReportWithOrdering.js ${GA4_PROPERTY_ID}`
+      `node ./run_report_with_ordering.js ${GA4_PROPERTY_ID}`
     );
     assert.match(stdout, /Report result/);
   });

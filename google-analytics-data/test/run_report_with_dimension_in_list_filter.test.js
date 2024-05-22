@@ -29,7 +29,7 @@ describe('Report with dimension in list filter', () => {
   it('should run a report using a dimension filter with `in_list_filter` expression.`', async () => {
     // eslint-disable-next-line no-unused-vars
     const stdout = execSync(
-      `node ./runReportWithDimensionInListFilter.js ${GA4_PROPERTY_ID}`
+      `node ./run_report_with_dimension_in_list_filter.js ${GA4_PROPERTY_ID}`
     );
     assert.match(stdout, /Report result/);
   });

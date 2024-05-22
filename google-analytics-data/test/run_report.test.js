@@ -28,7 +28,7 @@ const GA4_PROPERTY_ID = process.env.GA_TEST_PROPERTY_ID || '222596558';
 describe('RunReport', () => {
   it('should run runReport', async () => {
     // eslint-disable-next-line no-unused-vars
-    const stdout = execSync(`node ./runReport.js ${GA4_PROPERTY_ID}`);
+    const stdout = execSync(`node ./run_report.js ${GA4_PROPERTY_ID}`);
     assert.match(stdout, /Report result/);
   });
 });

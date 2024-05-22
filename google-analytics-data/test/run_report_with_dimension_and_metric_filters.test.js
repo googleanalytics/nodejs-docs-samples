@@ -29,7 +29,7 @@ describe('Report with dimension and metric filters', () => {
   it('should run a report with dimension and metric filters', async () => {
     // eslint-disable-next-line no-unused-vars
     const stdout = execSync(
-      `node ./runReportWithDimensionAndMetricFilters.js ${GA4_PROPERTY_ID}`
+      `node ./run_report_with_dimension_and_metric_filters.js ${GA4_PROPERTY_ID}`
     );
     assert.match(stdout, /Report result/);
   });

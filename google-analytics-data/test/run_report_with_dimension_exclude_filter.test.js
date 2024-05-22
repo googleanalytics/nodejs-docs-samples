@@ -29,7 +29,7 @@ describe('Report with dimension exclude filter', () => {
   it('should run a report using a filter with `not_expression`', async () => {
     // eslint-disable-next-line no-unused-vars
     const stdout = execSync(
-      `node ./runReportWithDimensionExcludeFilter.js ${GA4_PROPERTY_ID}`
+      `node ./run_report_with_dimension_exclude_filter.js ${GA4_PROPERTY_ID}`
     );
     assert.match(stdout, /Report result/);
   });

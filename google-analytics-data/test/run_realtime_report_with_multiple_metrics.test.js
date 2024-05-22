@@ -29,7 +29,7 @@ describe('Realtime report with multiple metrics', () => {
   it('should run realtime with multiple metrics', async () => {
     // eslint-disable-next-line no-unused-vars
     const stdout = execSync(
-      `node ./runRealtimeReportWithMultipleMetrics.js ${GA4_PROPERTY_ID}`
+      `node ./run_realtime_report_with_multiple_metrics.js ${GA4_PROPERTY_ID}`
     );
     assert.match(stdout, /Report result/);
   });

@@ -29,7 +29,7 @@ describe('Run report with cohorts', () => {
   it('should run report with cohorts', async () => {
     // eslint-disable-next-line no-unused-vars
     const stdout = execSync(
-      `node ./runReportWithCohorts.js ${GA4_PROPERTY_ID}`
+      `node ./run_report_with_cohorts.js ${GA4_PROPERTY_ID}`
     );
     assert.match(stdout, /Report result/);
   });

@@ -29,7 +29,7 @@ describe('Run report with aggregations', () => {
   it('should run report with aggregations', async () => {
     // eslint-disable-next-line no-unused-vars
     const stdout = execSync(
-      `node ./runReportWithAggregations.js ${GA4_PROPERTY_ID}`
+      `node ./run_report_with_aggregations.js ${GA4_PROPERTY_ID}`
     );
     assert.match(stdout, /Report result/);
   });

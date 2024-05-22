@@ -29,7 +29,7 @@ describe('Get metadata by property id', () => {
   it('should retrieve available dimensions and metrics available for a Google Analytics 4 property, including custom fields', async () => {
     // eslint-disable-next-line no-unused-vars
     const stdout = execSync(
-      `node ./getMetadataByPropertyId.js ${GA4_PROPERTY_ID}`
+      `node ./get_metadata_by_property_id.js ${GA4_PROPERTY_ID}`
     );
     assert.match(stdout, /Dimensions and metrics/);
   });

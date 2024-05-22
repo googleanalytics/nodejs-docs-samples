@@ -29,7 +29,7 @@ describe('Run Report With Multiple Dimensions', () => {
   it('should run runReportWithMultipleDimensions', async () => {
     // eslint-disable-next-line no-unused-vars
     const stdout = execSync(
-      `node ./runReportWithMultipleDimensions.js ${GA4_PROPERTY_ID}`
+      `node ./run_report_with_multiple_dimensions.js ${GA4_PROPERTY_ID}`
     );
     assert.match(stdout, /Report result/);
   });

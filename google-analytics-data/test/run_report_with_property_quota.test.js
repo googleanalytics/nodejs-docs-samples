@@ -29,7 +29,7 @@ describe('Report with property quota', () => {
   it('should run a report and print property quota information', async () => {
     // eslint-disable-next-line no-unused-vars
     const stdout = execSync(
-      `node ./runReportWithPropertyQuota.js ${GA4_PROPERTY_ID}`
+      `node ./run_report_with_property_quota.js ${GA4_PROPERTY_ID}`
     );
     assert.match(stdout, /Tokens per day quota consumed/);
   });

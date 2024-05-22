@@ -29,7 +29,7 @@ describe('Report with Pagination', () => {
   it('should run a report several times, receiving portioned results with pagination', async () => {
     // eslint-disable-next-line no-unused-vars
     const stdout = execSync(
-      `node ./runReportWithPagination.js ${GA4_PROPERTY_ID}`
+      `node ./run_report_with_pagination.js ${GA4_PROPERTY_ID}`
     );
     assert.match(stdout, /Report result/);
   });
