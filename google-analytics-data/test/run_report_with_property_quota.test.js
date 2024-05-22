@@ -25,12 +25,12 @@ const execSync = cmd => cp.execSync(cmd, {encoding: 'utf-8'});
 
 const GA4_PROPERTY_ID = process.env.GA_TEST_PROPERTY_ID || '222596558';
 
-describe('Report with ordering', () => {
-  it('should run a report of active users, ordered by descending revenue', async () => {
+describe('Report with property quota', () => {
+  it('should run a report and print property quota information', async () => {
     // eslint-disable-next-line no-unused-vars
     const stdout = execSync(
-      `node ./runReportWithOrdering.js ${GA4_PROPERTY_ID}`
+      `node ./run_report_with_property_quota.js ${GA4_PROPERTY_ID}`
     );
-    assert.match(stdout, /Report result/);
+    assert.match(stdout, /Tokens per day quota consumed/);
   });
 });

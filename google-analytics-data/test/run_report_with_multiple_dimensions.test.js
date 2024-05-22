@@ -25,11 +25,11 @@ const execSync = cmd => cp.execSync(cmd, {encoding: 'utf-8'});
 
 const GA4_PROPERTY_ID = process.env.GA_TEST_PROPERTY_ID || '222596558';
 
-describe('Report with multiple dimension filters', () => {
-  it('runs a report with dimension filters', async () => {
+describe('Run Report With Multiple Dimensions', () => {
+  it('should run runReportWithMultipleDimensions', async () => {
     // eslint-disable-next-line no-unused-vars
     const stdout = execSync(
-      `node ./runReportWithMultipleDimensionFilters.js ${GA4_PROPERTY_ID}`
+      `node ./run_report_with_multiple_dimensions.js ${GA4_PROPERTY_ID}`
     );
     assert.match(stdout, /Report result/);
   });

@@ -29,7 +29,7 @@ describe('Report with named date ranges', () => {
   it('runs a report using named date ranges', async () => {
     // eslint-disable-next-line no-unused-vars
     const stdout = execSync(
-      `node ./runReportWithNamedDateRanges.js ${GA4_PROPERTY_ID}`
+      `node ./run_report_with_named_date_ranges.js ${GA4_PROPERTY_ID}`
     );
     assert.match(stdout, /Report result/);
   });

@@ -25,10 +25,12 @@ const execSync = cmd => cp.execSync(cmd, {encoding: 'utf-8'});
 
 const GA4_PROPERTY_ID = process.env.GA_TEST_PROPERTY_ID || '222596558';
 
-describe('RunReport', () => {
-  it('should run runReport', async () => {
+describe('Get metadata by property id', () => {
+  it('should retrieve available dimensions and metrics available for a Google Analytics 4 property, including custom fields', async () => {
     // eslint-disable-next-line no-unused-vars
-    const stdout = execSync(`node ./runReport.js ${GA4_PROPERTY_ID}`);
-    assert.match(stdout, /Report result/);
+    const stdout = execSync(
+      `node ./get_metadata_by_property_id.js ${GA4_PROPERTY_ID}`
+    );
+    assert.match(stdout, /Dimensions and metrics/);
   });
 });

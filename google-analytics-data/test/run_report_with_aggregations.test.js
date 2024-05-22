@@ -25,10 +25,12 @@ const execSync = cmd => cp.execSync(cmd, {encoding: 'utf-8'});
 
 const GA4_PROPERTY_ID = process.env.GA_TEST_PROPERTY_ID || '222596558';
 
-describe('RunFunnelReport', () => {
-  it('should run runFunnelReport', async () => {
+describe('Run report with aggregations', () => {
+  it('should run report with aggregations', async () => {
     // eslint-disable-next-line no-unused-vars
-    const stdout = execSync(`node ./runFunnelReport.js ${GA4_PROPERTY_ID}`);
+    const stdout = execSync(
+      `node ./run_report_with_aggregations.js ${GA4_PROPERTY_ID}`
+    );
     assert.match(stdout, /Report result/);
   });
 });

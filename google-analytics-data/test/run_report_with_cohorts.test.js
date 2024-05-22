@@ -25,10 +25,12 @@ const execSync = cmd => cp.execSync(cmd, {encoding: 'utf-8'});
 
 const GA4_PROPERTY_ID = process.env.GA_TEST_PROPERTY_ID || '222596558';
 
-describe('Pivot report', () => {
-  it('should run a pivot query to build a report of session counts by country, pivoted by the browser dimension', async () => {
+describe('Run report with cohorts', () => {
+  it('should run report with cohorts', async () => {
     // eslint-disable-next-line no-unused-vars
-    const stdout = execSync(`node ./runPivotReport.js ${GA4_PROPERTY_ID}`);
+    const stdout = execSync(
+      `node ./run_report_with_cohorts.js ${GA4_PROPERTY_ID}`
+    );
     assert.match(stdout, /Report result/);
   });
 });

@@ -25,10 +25,12 @@ const execSync = cmd => cp.execSync(cmd, {encoding: 'utf-8'});
 
 const GA4_PROPERTY_ID = process.env.GA_TEST_PROPERTY_ID || '222596558';
 
-describe('Batch report', () => {
-  it('should run a batch report on a Google Analytics 4 property', async () => {
+describe('Report with date ranges', () => {
+  it('should run a report with date ranges', async () => {
     // eslint-disable-next-line no-unused-vars
-    const stdout = execSync(`node ./runBatchReport.js ${GA4_PROPERTY_ID}`);
-    assert.match(stdout, /Batch report result/);
+    const stdout = execSync(
+      `node ./run_report_with_date_ranges.js ${GA4_PROPERTY_ID}`
+    );
+    assert.match(stdout, /Report result/);
   });
 });
