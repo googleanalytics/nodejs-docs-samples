@@ -70,7 +70,7 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
           name: 'sessions',
         },
         {
-          name: 'conversions',
+          name: 'keyEvents',
         },
         {
           name: 'totalRevenue',
@@ -109,7 +109,7 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
           name: 'sessions',
         },
         {
-          name: 'conversions',
+          name: 'keyEvents',
         },
         {
           name: 'totalRevenue',
