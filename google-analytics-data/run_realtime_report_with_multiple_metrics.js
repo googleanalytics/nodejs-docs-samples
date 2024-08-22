@@ -94,7 +94,7 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
           name: 'screenPageViews',
         },
         {
-          name: 'conversions',
+          name: 'keyEvents',
         },
       ],
     });
