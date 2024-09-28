@@ -28,12 +28,16 @@ const GA4_PROPERTY_ID = process.env.GA_TEST_PROPERTY_ID || '222596558';
 const GOOGLE_APPLICATION_CREDENTIALS =
   process.env.GOOGLE_APPLICATION_CREDENTIALS;
 
-describe('Quickstart with json credentials', () => {
-  it('should run quickstart', async () => {
-    // eslint-disable-next-line no-unused-vars
-    const stdout = execSync(
-      `node ./quickstart_json_credentials.js ${GA4_PROPERTY_ID} ${GOOGLE_APPLICATION_CREDENTIALS}`
-    );
-    assert.match(stdout, /Report result/);
+describe('Quickstart with json credentials', function() {
+  it('should run quickstart if ADC env var set', function() {
+    if (process.env.GOOGLE_APPLICATION_CREDENTIALS) {
+      // eslint-disable-next-line no-unused-vars
+      const stdout = execSync(
+        `node ./quickstart_json_credentials.js ${GA4_PROPERTY_ID} ${GOOGLE_APPLICATION_CREDENTIALS}`
+      );
+      assert.match(stdout, /Report result/);
+    } else {
+      this.skip();
+    }
   });
 });
