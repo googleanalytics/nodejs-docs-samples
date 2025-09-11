@@ -19,7 +19,7 @@
     "google-auth-library": "^10.0.0",
     "google-gax": "^5.0.0",
     "http": "^0.0.1-security",
-    "lint": "^0.8.0",
+    "lint": "^1.1.2",
     "open": "^10.0.0",
     "server-destroy": "^1.0.1",
     "url": "^0.11.0"
