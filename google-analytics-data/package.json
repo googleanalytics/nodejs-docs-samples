@@ -4,13 +4,13 @@
   "license": "Apache-2.0",
   "author": "Google LLC",
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   },
   "files": [
     "*.js"
   ],
   "scripts": {
-    "lint": "eslint",
+    "lint": "eslint ./*.js",
     "fix": "eslint --fix",
     "test": "c8 mocha --timeout 600000 test/*.js"
   },

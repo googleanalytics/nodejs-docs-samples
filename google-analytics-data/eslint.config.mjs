@@ -13,18 +13,28 @@ const compat = new FlatCompat({
     allConfig: js.configs.all
 });
 
-export default defineConfig([{
-    extends: compat.extends("google"),
+const googleConfig = compat.extends("google");
+for (const config of googleConfig) {
+    if (config.rules) {
+        delete config.rules["valid-jsdoc"];
+        delete config.rules["require-jsdoc"];
+    }
+}
 
-    languageOptions: {
-        globals: {
-            ...globals.browser,
-            ...globals.commonjs,
+export default defineConfig([
+    ...googleConfig,
+    {
+        files: ["**/*.js"],
+        languageOptions: {
+            globals: {
+                ...globals.browser,
+                ...globals.commonjs,
+            },
+
+            ecmaVersion: "latest",
+            sourceType: "script",
         },
 
-        ecmaVersion: "latest",
-        sourceType: "script",
-    },
-
-    rules: {},
-}]);
+        rules: {},
+    }
+]);
