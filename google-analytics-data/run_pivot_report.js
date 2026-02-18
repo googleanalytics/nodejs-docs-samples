@@ -42,7 +42,8 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
   // needs to be created once, and can be reused for multiple requests.
   const analyticsDataClient = new BetaAnalyticsDataClient();
 
-  // Runs a pivot query to build a report of session counts by country, pivoted by the browser dimension.
+  // Runs a pivot query to build a report of session counts by country, pivoted
+  // by the browser dimension.
   async function runPivotReport() {
     const [response] = await analyticsDataClient.runPivotReport({
       property: `properties/${propertyId}`,
@@ -99,14 +100,14 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
 
   // Prints results of a runReport call.
   function printPivotReportResponse(response) {
-    //[START analyticsdata_print_run_pivot_report_response]
+    // [START analyticsdata_print_run_pivot_report_response]
     console.log('Report result:');
-    response.rows.forEach(row => {
-      row.dimensionValues.forEach(dimensionValue => {
+    response.rows.forEach((row) => {
+      row.dimensionValues.forEach((dimensionValue) => {
         console.log(dimensionValue.value);
       });
 
-      row.metricValues.forEach(metricValue => {
+      row.metricValues.forEach((metricValue) => {
         console.log(metricValue.value);
       });
     });
@@ -115,7 +116,7 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
   // [END analyticsdata_run_pivot_report]
 }
 
-process.on('unhandledRejection', err => {
+process.on('unhandledRejection', (err) => {
   console.error(err.message);
   process.exitCode = 1;
 });

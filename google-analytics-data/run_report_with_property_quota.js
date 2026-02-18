@@ -73,32 +73,33 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
   function printPropertyQuotaResponse(response) {
     // [START analyticsdata_run_report_with_property_quota_print_response]
     if (response.propertyQuota) {
+      const quota = response.propertyQuota;
       console.log(
-        `Tokens per day quota consumed: ${response.propertyQuota.tokensPerDay.consumed},` +
-          ` remaining: ${response.propertyQuota.tokensPerDay.remaining}`
+          `Tokens per day quota consumed: ${quota.tokensPerDay.consumed}, ` +
+          `remaining: ${quota.tokensPerDay.remaining}`,
       );
 
       console.log(
-        `Tokens per hour quota consumed: ${response.propertyQuota.tokensPerHour.consumed}` +
-          `, remaining: ${response.propertyQuota.tokensPerHour.remaining}`
+          `Tokens per hour quota consumed: ${quota.tokensPerHour.consumed}, ` +
+          `remaining: ${quota.tokensPerHour.remaining}`,
       );
 
       console.log(
-        `Concurrent requests quota consumed: ${response.propertyQuota.concurrentRequests.consumed}` +
-          `, remaining: ${response.propertyQuota.concurrentRequests.remaining}`
+          `Concurrent requests quota consumed: ` +
+          `${quota.concurrentRequests.consumed}, ` +
+          `remaining: ${quota.concurrentRequests.remaining}`,
       );
 
       console.log(
-        'Server errors per project per hour quota consumed: ' +
-          response.propertyQuota.serverErrorsPerProjectPerHour.consumed +
-          ', remaining: ' +
-          response.propertyQuota.serverErrorsPerProjectPerHour.remaining
+          `Server errors per project per hour quota consumed: ` +
+          `${quota.serverErrorsPerProjectPerHour.consumed}, ` +
+          `remaining: ${quota.serverErrorsPerProjectPerHour.remaining}`,
       );
 
       console.log(
-        'Potentially thresholded requests per hour quota consumed: ' +
-          `${response.propertyQuota.potentiallyThresholdedRequestsPerHour.consumed}` +
-          `, remaining: ${response.propertyQuota.potentiallyThresholdedRequestsPerHour.remaining}`
+          `Potentially thresholded requests per hour quota consumed: ` +
+          `${quota.potentiallyThresholdedRequestsPerHour.consumed}, ` +
+          `remaining: ${quota.potentiallyThresholdedRequestsPerHour.remaining}`,
       );
     }
     // [END analyticsdata_run_report_with_property_quota_print_response]
@@ -106,7 +107,7 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
   // [END analyticsdata_run_report_with_property_quota]
 }
 
-process.on('unhandledRejection', err => {
+process.on('unhandledRejection', (err) => {
   console.error(err.message);
   process.exitCode = 1;
 });

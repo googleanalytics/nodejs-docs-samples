@@ -14,18 +14,19 @@
 
 'use strict';
 
-/** Google Analytics Data API sample application retrieving dimension and metrics
-metadata.
-
-See https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/getMetadata
-for more information.
-
- Before you start the application, please review the comments starting with
- "TODO(developer)" and update the code to use correct values.
-
- Usage:
- npm install
- node getMetadataByPropertyId.js
+/**
+ * Google Analytics Data API sample application retrieving dimension and metrics
+ * metadata.
+ *
+ * See https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/getMetadata
+ * for more information.
+ *
+ * Before you start the application, please review the comments starting with
+ * "TODO(developer)" and update the code to use correct values.
+ *
+ * Usage:
+ * npm install
+ * node getMetadataByPropertyId.js
  */
 
 function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
@@ -49,7 +50,8 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
       name: `properties/${propertyId}/metadata`,
     });
     console.log(
-      `Dimensions and metrics available for a Google Analytics 4 property ${propertyId} (including custom fields):`
+        'Dimensions and metrics available for a Google Analytics 4 ' +
+        `property ${propertyId} (including custom fields):`,
     );
     printGetMetadataResponse(response);
   }
@@ -58,11 +60,12 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
 
   // Prints results of the getMetadata call.
   function printGetMetadataResponse(response) {
-    //[START analyticsdata_print_get_metadata_response]
-    response.dimensions.forEach(dimension => {
+    // [START analyticsdata_print_get_metadata_response]
+    response.dimensions.forEach((dimension) => {
       console.log('DIMENSION');
       console.log(
-        `${dimension.apiName} (${dimension.uiName}): ${dimension.description}`
+          `${dimension.apiName} (${dimension.uiName}): ` +
+          `${dimension.description}`,
       );
       console.log(`custom definition: ${dimension.customDefinition}`);
       if (
@@ -74,10 +77,10 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
       console.log();
     });
 
-    response.metrics.forEach(metric => {
+    response.metrics.forEach((metric) => {
       console.log('METRIC');
       console.log(
-        `${metric.apiName} (${metric.uiName}): ${metric.description}`
+          `${metric.apiName} (${metric.uiName}): ${metric.description}`,
       );
       console.log(`custom definition: ${metric.customDefinition}`);
       if (metric.expression) {
@@ -94,7 +97,7 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
   // [END analyticsdata_get_metadata_by_property_id]
 }
 
-process.on('unhandledRejection', err => {
+process.on('unhandledRejection', (err) => {
   console.error(err.message);
   process.exitCode = 1;
 });

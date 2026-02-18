@@ -21,13 +21,12 @@ const cp = require('child_process');
 const {assert} = require('chai');
 const {describe, it} = require('mocha');
 
-const execSync = cmd => cp.execSync(cmd, {encoding: 'utf-8'});
+const execSync = (cmd) => cp.execSync(cmd, {encoding: 'utf-8'});
 
 const GA4_PROPERTY_ID = process.env.GA_TEST_PROPERTY_ID || '222596558';
 
 describe('Batch report', () => {
   it('should run a batch report on a Google Analytics 4 property', async () => {
-    // eslint-disable-next-line no-unused-vars
     const stdout = execSync(`node ./run_batch_report.js ${GA4_PROPERTY_ID}`);
     assert.match(stdout, /Batch report result/);
   });

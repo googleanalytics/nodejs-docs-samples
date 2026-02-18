@@ -72,26 +72,26 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
   // Prints results of a runReport call.
   function printRunReportResponse(response) {
     console.log(`${response.rowCount} rows received`);
-    response.dimensionHeaders.forEach(dimensionHeader => {
+    response.dimensionHeaders.forEach((dimensionHeader) => {
       console.log(`Dimension header name: ${dimensionHeader.name}`);
     });
-    response.metricHeaders.forEach(metricHeader => {
+    response.metricHeaders.forEach((metricHeader) => {
       console.log(
-        `Metric header name: ${metricHeader.name} (${metricHeader.type})`
+          `Metric header name: ${metricHeader.name} (${metricHeader.type})`,
       );
     });
 
     console.log('Report result:');
-    response.rows.forEach(row => {
+    response.rows.forEach((row) => {
       console.log(
-        `${row.dimensionValues[0].value}, ${row.metricValues[0].value}`
+          `${row.dimensionValues[0].value}, ${row.metricValues[0].value}`,
       );
     });
   }
   // [END analyticsdata_run_realtime_report_with_minute_ranges]
 }
 
-process.on('unhandledRejection', err => {
+process.on('unhandledRejection', (err) => {
   console.error(err.message);
   process.exitCode = 1;
 });

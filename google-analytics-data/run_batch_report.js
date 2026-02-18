@@ -14,18 +14,19 @@
 
 'use strict';
 
-/** Google Analytics Data API sample application demonstrating the batch creation
-of multiple reports.
-
-See https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/batchRunReports
-for more information.
-
- Before you start the application, please review the comments starting with
- "TODO(developer)" and update the code to use correct values.
-
- Usage:
- npm install
- node runBatchReport.js
+/**
+ * Google Analytics Data API sample application demonstrating the batch creation
+ * of multiple reports.
+ *
+ * See https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/batchRunReports
+ * for more information.
+ *
+ * Before you start the application, please review the comments starting with
+ * "TODO(developer)" and update the code to use correct values.
+ *
+ * Usage:
+ * npm install
+ * node runBatchReport.js
  */
 
 function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
@@ -93,7 +94,7 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
     });
 
     console.log('Batch report results:');
-    response.reports.forEach(report => {
+    response.reports.forEach((report) => {
       printRunReportResponse(report);
     });
   }
@@ -102,23 +103,23 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
 
   // Prints results of a runReport call.
   function printRunReportResponse(response) {
-    //[START analyticsdata_print_run_report_response_header]
+    // [START analyticsdata_print_run_report_response_header]
     console.log(`${response.rowCount} rows received`);
-    response.dimensionHeaders.forEach(dimensionHeader => {
+    response.dimensionHeaders.forEach((dimensionHeader) => {
       console.log(`Dimension header name: ${dimensionHeader.name}`);
     });
-    response.metricHeaders.forEach(metricHeader => {
+    response.metricHeaders.forEach((metricHeader) => {
       console.log(
-        `Metric header name: ${metricHeader.name} (${metricHeader.type})`
+          `Metric header name: ${metricHeader.name} (${metricHeader.type})`,
       );
     });
-    //[END analyticsdata_print_run_report_response_header]
+    // [END analyticsdata_print_run_report_response_header]
 
     // [START analyticsdata_print_run_report_response_rows]
     console.log('Report result:');
-    response.rows.forEach(row => {
+    response.rows.forEach((row) => {
       console.log(
-        `${row.dimensionValues[0].value}, ${row.metricValues[0].value}`
+          `${row.dimensionValues[0].value}, ${row.metricValues[0].value}`,
       );
     });
     // [END analyticsdata_print_run_report_response_rows]
@@ -126,7 +127,7 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
   // [END analyticsdata_run_batch_report]
 }
 
-process.on('unhandledRejection', err => {
+process.on('unhandledRejection', (err) => {
   console.error(err.message);
   process.exitCode = 1;
 });
