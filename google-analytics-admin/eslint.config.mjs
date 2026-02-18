@@ -24,7 +24,7 @@ for (const config of googleConfig) {
 export default defineConfig([
   ...googleConfig,
   {
-    files: ['**/*.js'],
+    files: ['*.js'],
     languageOptions: {
       globals: {
         ...globals.browser,
