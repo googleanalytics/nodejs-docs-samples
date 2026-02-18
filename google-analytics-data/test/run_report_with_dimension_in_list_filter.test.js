@@ -21,15 +21,16 @@ const cp = require('child_process');
 const {assert} = require('chai');
 const {describe, it} = require('mocha');
 
-const execSync = cmd => cp.execSync(cmd, {encoding: 'utf-8'});
+const execSync = (cmd) => cp.execSync(cmd, {encoding: 'utf-8'});
 
 const GA4_PROPERTY_ID = process.env.GA_TEST_PROPERTY_ID || '222596558';
 
 describe('Report with dimension in list filter', () => {
-  it('should run a report using a dimension filter with `in_list_filter` expression.`', async () => {
-    // eslint-disable-next-line no-unused-vars
+  it('should run a report using a dimension filter with ' +
+      '`in_list_filter` expression.`',
+  async () => {
     const stdout = execSync(
-      `node ./run_report_with_dimension_in_list_filter.js ${GA4_PROPERTY_ID}`
+        `node ./run_report_with_dimension_in_list_filter.js ${GA4_PROPERTY_ID}`,
     );
     assert.match(stdout, /Report result/);
   });

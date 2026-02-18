@@ -14,18 +14,19 @@
 
 'use strict';
 
-/** Google Analytics Data API sample application retrieving dimension and metrics
-metadata.
-
-See https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/getMetadata
-for more information.
-
- Before you start the application, please review the comments starting with
- "TODO(developer)" and update the code to use correct values.
-
- Usage:
- npm install
- node getCommonMetadata.js
+/**
+ * Google Analytics Data API sample application retrieving dimension and metrics
+ * metadata.
+ *
+ * See https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/properties/getMetadata
+ * for more information.
+ *
+ * Before you start the application, please review the comments starting with
+ * "TODO(developer)" and update the code to use correct values.
+ *
+ * Usage:
+ * npm install
+ * node getCommonMetadata.js
  */
 
 function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
@@ -43,13 +44,15 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
   // needs to be created once, and can be reused for multiple requests.
   const analyticsDataClient = new BetaAnalyticsDataClient();
 
-  // Retrieves dimensions and metrics available for all Google Analytics 4 properties.
+  // Retrieves dimensions and metrics available for all Google Analytics 4
+  // properties.
   async function getCommonMetadata() {
     const [response] = await analyticsDataClient.getMetadata({
       name: `properties/${propertyId}/metadata`,
     });
     console.log(
-      'Dimensions and metrics available for all Google Analytics 4 properties:'
+        'Dimensions and metrics available for all ' +
+        'Google Analytics 4 properties:',
     );
     printGetMetadataResponse(response);
   }
@@ -58,11 +61,12 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
 
   // Prints results of the getMetadata call.
   function printGetMetadataResponse(response) {
-    //[START analyticsdata_print_get_metadata_response]
-    response.dimensions.forEach(dimension => {
+    // [START analyticsdata_print_get_metadata_response]
+    response.dimensions.forEach((dimension) => {
       console.log('DIMENSION');
       console.log(
-        `${dimension.apiName} (${dimension.uiName}): ${dimension.description}`
+          `${dimension.apiName} (${dimension.uiName}): ` +
+          `${dimension.description}`,
       );
       console.log(`custom definition: ${dimension.customDefinition}`);
       if (
@@ -74,10 +78,10 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
       console.log();
     });
 
-    response.metrics.forEach(metric => {
+    response.metrics.forEach((metric) => {
       console.log('METRIC');
       console.log(
-        `${metric.apiName} (${metric.uiName}): ${metric.description}`
+          `${metric.apiName} (${metric.uiName}): ${metric.description}`,
       );
       console.log(`custom definition: ${metric.customDefinition}`);
       if (metric.expression) {
@@ -94,7 +98,7 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
   // [END analyticsdata_get_common_metadata]
 }
 
-process.on('unhandledRejection', err => {
+process.on('unhandledRejection', (err) => {
   console.error(err.message);
   process.exitCode = 1;
 });

@@ -58,7 +58,7 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
       property: `properties/${propertyId}`,
       dateRanges: [{startDate: '30daysAgo', endDate: 'today'}],
       funnelBreakdown: {
-        breakdownDimension: { name: 'deviceCategory' },
+        breakdownDimension: {name: 'deviceCategory'},
       },
       funnel: {
         steps: [
@@ -67,11 +67,11 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
             filterExpression: {
               orGroup: {
                 expressions: [
-                  { funnelEventFilter: {eventName: 'first_open'}},
-                  { funnelEventFilter: {eventName: 'first_visit'}}
-                ]
-              }
-            }
+                  {funnelEventFilter: {eventName: 'first_open'}},
+                  {funnelEventFilter: {eventName: 'first_visit'}},
+                ],
+              },
+            },
           },
           {
             name: 'Organic visitors',
@@ -81,54 +81,54 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
                 stringFilter: {
                   matchType: 'CONTAINS',
                   caseSensitive: false,
-                  value: 'organic'
-                }
-              }
-            }
+                  value: 'organic',
+                },
+              },
+            },
           },
           {
             name: 'Session start',
             filterExpression: {
               funnelEventFilter: {
                 eventName: 'session_start',
-              }
-            }
+              },
+            },
           },
           {
             name: 'Screen/Page view',
             filterExpression: {
               orGroup: {
                 expressions: [
-                  { funnelEventFilter: {eventName: 'screen_view'}},
-                  { funnelEventFilter: {eventName: 'page_view'}},
-                ]
-              }
-            }
+                  {funnelEventFilter: {eventName: 'screen_view'}},
+                  {funnelEventFilter: {eventName: 'page_view'}},
+                ],
+              },
+            },
           },
           {
             name: 'Screen/Page view',
             filterExpression: {
               orGroup: {
                 expressions: [
-                  { funnelEventFilter: {eventName: 'screen_view'}},
-                  { funnelEventFilter: {eventName: 'page_view'}},
-                ]
-              }
-            }
+                  {funnelEventFilter: {eventName: 'screen_view'}},
+                  {funnelEventFilter: {eventName: 'page_view'}},
+                ],
+              },
+            },
           },
           {
             name: 'Purchase',
             filterExpression: {
               orGroup: {
                 expressions: [
-                  { funnelEventFilter: {eventName: 'purchase'}},
-                  { funnelEventFilter: {eventName: 'in_app_purchase'}},
-                ]
-              }
-            }
+                  {funnelEventFilter: {eventName: 'purchase'}},
+                  {funnelEventFilter: {eventName: 'in_app_purchase'}},
+                ],
+              },
+            },
           },
-        ]
-      }
+        ],
+      },
     });
     printRunFunnelReportResponse(response);
   }
@@ -137,33 +137,36 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
   // Prints contents of a FunnelSubReport object.
   function printFunnelSubReport(funnelSubReport) {
     console.log('Dimension headers:');
-    funnelSubReport.dimensionHeaders.forEach(dimensionHeader => {
+    funnelSubReport.dimensionHeaders.forEach((dimensionHeader) => {
       console.log(dimensionHeader.name);
     });
     console.log('\nMetric headers:');
-    funnelSubReport.metricHeaders.forEach(metricHeader => {
+    funnelSubReport.metricHeaders.forEach((metricHeader) => {
       console.log(metricHeader.name);
     });
     console.log('\nDimensions and metric values for each row in the report:');
     funnelSubReport.rows.forEach((row, rowIndex) => {
       console.log(`\nRow #${rowIndex}`);
       row.dimensionValues.forEach((dimensionValue, dimensionIndex) => {
-        const dimensionName = funnelSubReport.dimensionHeaders[dimensionIndex].name;
+        const dimensionName =
+            funnelSubReport.dimensionHeaders[dimensionIndex].name;
         console.log(`\n${dimensionName}: ${dimensionValue.value}`);
-      })
+      });
 
       row.metricValues.forEach((metricValue, metricIndex) => {
         const metricName = funnelSubReport.metricHeaders[metricIndex].name;
         console.log(`\n${metricName}: ${metricValue.value}`);
-      })
+      });
     });
 
     console.log('\nSampling metadata for each date range:');
-    funnelSubReport.metadata.samplingMetadatas.forEach((metadata, metadataIndex) => {
-      console.log(`Sampling metadata for date range #${metadataIndex}: `
-        `samplesReadCount=${metadata.samplesReadCount}, `
-        `samplingSpaceSize=${metadata.samplingSpaceSize}`
-        );
+    const samplingMetadatas = funnelSubReport.metadata.samplingMetadatas;
+    samplingMetadatas.forEach((metadata, metadataIndex) => {
+      console.log(
+          `Sampling metadata for date range #${metadataIndex}: ` +
+          `samplesReadCount=${metadata.samplesReadCount}, ` +
+          `samplingSpaceSize=${metadata.samplingSpaceSize}`,
+      );
     });
   }
 
@@ -182,7 +185,7 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
   // [END analyticsdata_run_funnel_report]
 }
 
-process.on('unhandledRejection', err => {
+process.on('unhandledRejection', (err) => {
   console.error(err.message);
   process.exitCode = 1;
 });

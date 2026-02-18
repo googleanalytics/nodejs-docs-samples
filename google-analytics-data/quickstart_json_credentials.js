@@ -78,7 +78,7 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID', credentialsJsonPath = '') {
     // [END analyticsdata_json_credentials_run_report]
 
     console.log('Report result:');
-    response.rows.forEach(row => {
+    response.rows.forEach((row) => {
       console.log(row.dimensionValues[0], row.metricValues[0]);
     });
   }
@@ -87,7 +87,7 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID', credentialsJsonPath = '') {
   // [END analyticsdata_json_credentials_quickstart]
 }
 
-process.on('unhandledRejection', err => {
+process.on('unhandledRejection', (err) => {
   console.error(err.message);
   process.exitCode = 1;
 });

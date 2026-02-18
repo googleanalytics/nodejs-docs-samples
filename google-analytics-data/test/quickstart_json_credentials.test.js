@@ -21,7 +21,7 @@ const cp = require('child_process');
 const {assert} = require('chai');
 const {describe, it} = require('mocha');
 
-const execSync = cmd => cp.execSync(cmd, {encoding: 'utf-8'});
+const execSync = (cmd) => cp.execSync(cmd, {encoding: 'utf-8'});
 
 const GA4_PROPERTY_ID = process.env.GA_TEST_PROPERTY_ID || '222596558';
 
@@ -31,12 +31,13 @@ const GOOGLE_APPLICATION_CREDENTIALS =
 describe('Quickstart with json credentials', function() {
   it('should run quickstart if ADC env var set', function() {
     if (process.env.GOOGLE_APPLICATION_CREDENTIALS) {
-      // eslint-disable-next-line no-unused-vars
       const stdout = execSync(
-        `node ./quickstart_json_credentials.js ${GA4_PROPERTY_ID} ${GOOGLE_APPLICATION_CREDENTIALS}`
+          `node ./quickstart_json_credentials.js ${GA4_PROPERTY_ID} ` +
+          `${GOOGLE_APPLICATION_CREDENTIALS}`,
       );
       assert.match(stdout, /Report result/);
     } else {
+      // eslint-disable-next-line no-invalid-this
       this.skip();
     }
   });

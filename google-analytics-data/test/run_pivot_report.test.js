@@ -21,14 +21,18 @@ const cp = require('child_process');
 const {assert} = require('chai');
 const {describe, it} = require('mocha');
 
-const execSync = cmd => cp.execSync(cmd, {encoding: 'utf-8'});
+const execSync = (cmd) => cp.execSync(cmd, {encoding: 'utf-8'});
 
 const GA4_PROPERTY_ID = process.env.GA_TEST_PROPERTY_ID || '222596558';
 
 describe('Pivot report', () => {
-  it('should run a pivot query to build a report of session counts by country, pivoted by the browser dimension', async () => {
-    // eslint-disable-next-line no-unused-vars
-    const stdout = execSync(`node ./run_pivot_report.js ${GA4_PROPERTY_ID}`);
-    assert.match(stdout, /Report result/);
-  });
+  it(
+      'should run a pivot query to build a report of session counts by ' +
+      'country, pivoted by the browser dimension',
+      async () => {
+        const stdout = execSync(
+            `node ./run_pivot_report.js ${GA4_PROPERTY_ID}`,
+        );
+        assert.match(stdout, /Report result/);
+      });
 });

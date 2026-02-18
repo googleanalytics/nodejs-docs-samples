@@ -35,8 +35,8 @@ const destroyer = require('server-destroy');
 
 // TODO(developer): Download the OAuth 2.0 client ID JSON from
 // https://console.cloud.google.com/apis/credentials for a Desktop or Web
-// client, and save it in the nodejs-docs-samples/google-analytics-data directory
-// in a file named oauth2.keys.json.  If using a Web client, register
+// client, and save it in the nodejs-docs-samples/google-analytics-data
+// directory in a file named oauth2.keys.json. If using a Web client, register
 // http://127.0.0.1 as an authorized redirect URI.
 const keys = require('./oauth2.keys.json');
 
@@ -49,8 +49,8 @@ async function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
   // Constructs a BetaAnalyticsDataClient using the credentials obtained above
   // instead of the Application Default Credentials.
   const credentials = grpc.credentials.combineChannelCredentials(
-    grpc.credentials.createSsl(),
-    grpc.credentials.createFromGoogleCredential(oAuth2Client)
+      grpc.credentials.createSsl(),
+      grpc.credentials.createFromGoogleCredential(oAuth2Client),
   );
   const analyticsDataClient = new BetaAnalyticsDataClient({
     sslCreds: credentials,
