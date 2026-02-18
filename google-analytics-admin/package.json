@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "lint": "eslint ./*.js",
-    "fix": "eslint --fix",
+    "fix": "eslint ./*.js --fix",
     "test": "c8 mocha --timeout 600000 test/*.js"
   },
   "dependencies": {

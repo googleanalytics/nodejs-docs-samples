@@ -10,8 +10,8 @@
     "*.js"
   ],
   "scripts": {
-    "lint": "eslint ./*.js",
-    "fix": "eslint --fix",
+    "lint": "eslint ./*.js ./test/*.js",
+    "fix": "eslint ./*.js ./test/*.js --fix",
     "test": "c8 mocha --timeout 600000 test/*.js"
   },
   "dependencies": {
