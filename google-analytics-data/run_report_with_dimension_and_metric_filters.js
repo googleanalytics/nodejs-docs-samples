@@ -44,8 +44,8 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
 
   // Runs a report using both metric and dimension filters. A dimension filter
   // limits the report to include only users who made an in-app purchase using
-  // Android platform. A metric filter specifies that only users with session
-  // counts larger than 1,000 should be included.
+  // the Android platform. A metric filter specifies that only users with
+  // session counts larger than 1,000 should be included.
   async function runReportWithDimensionAndMetricFilters() {
     const [response] = await analyticsDataClient.runReport({
       property: `properties/${propertyId}`,

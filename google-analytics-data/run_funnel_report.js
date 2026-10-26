@@ -106,17 +106,6 @@ function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
             },
           },
           {
-            name: 'Screen/Page view',
-            filterExpression: {
-              orGroup: {
-                expressions: [
-                  {funnelEventFilter: {eventName: 'screen_view'}},
-                  {funnelEventFilter: {eventName: 'page_view'}},
-                ],
-              },
-            },
-          },
-          {
             name: 'Purchase',
             filterExpression: {
               orGroup: {

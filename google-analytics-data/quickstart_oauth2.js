@@ -88,7 +88,7 @@ async function main(propertyId = 'YOUR-GA4-PROPERTY-ID') {
 }
 
 /**
-* Create a new OAuth2Client, and go through the OAuth2 content workflow.
+* Create a new OAuth2Client, and go through the OAuth2 consent workflow.
 * Return the full client to the callback.
 */
 function getAuthenticatedClient() {
